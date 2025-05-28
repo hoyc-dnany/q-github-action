@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Actions 示範專案</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>GitHub Actions 示範專案</h1>
+    
+    <div class="container">
+        <h2>API 狀態檢查</h2>
+        <button id="checkStatus">檢查 API 狀態</button>
+        <div id="statusResult"></div>
+    </div>
+
+    <div class="container">
+        <h2>今日日期</h2>
+        <p>今天是: <span id="todayDate"></span></p>
+    </div>
+
+    <script>
+        // 檢查 API 狀態
+        document.getElementById('checkStatus').addEventListener('click', async () => {
+            try {
+                const response = await fetch('/api/status');
+                const data = await response.json();
+                
+                document.getElementById('statusResult').innerHTML = `
+                    <h3>API 回應:</h3>
+                    <pre>${JSON.stringify(data, null, 2)}</pre>
+                `;
+            } catch (error) {
+                document.getElementById('statusResult').innerHTML = `
+                    <h3>錯誤:</h3>
+                    <pre>${error.message}</pre>
+                `;
+            }
+        });
+
+        // 顯示今日日期
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, '0');
+        const day = String(today.getDate()).padStart(2, '0');
+        document.getElementById('todayDate').textContent = `${year}-${month}-${day}`;
+    </script>
+</body>
+</html>
