@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node src/index.js",
     "build": "mkdir -p dist && cp -r src/* dist/",
-    "test": "jest"
+    "test": "jest",
+    "help": "echo '\n=== HOW TO RUN THIS APPLICATION ===\n\n1. Install dependencies: npm install\n2. Start the application: npm start\n3. Access in browser: http://localhost:3000\n\nFor more details, see RUN_INSTRUCTIONS.md\n'"
   },
   "keywords": [
     "github",

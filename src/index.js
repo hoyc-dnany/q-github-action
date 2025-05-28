@@ -16,7 +16,15 @@ app.get('/api/status', (req, res) => {
 
 if (require.main === module) {
   app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`
+=================================================
+🚀 Server running on port ${port}
+🌐 Access the application at: http://localhost:${port}
+📊 API status endpoint: http://localhost:${port}/api/status
+=================================================
+For more information, see RUN_INSTRUCTIONS.md
+or run: npm run help
+`);
   });
 }
 
