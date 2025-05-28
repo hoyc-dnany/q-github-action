@@ -16,7 +16,18 @@ app.get('/api/status', (req, res) => {
 
 if (require.main === module) {
   app.listen(port, () => {
-    console.log(`Server running on port ${port}`);
+    console.log(`
+========================================
+  GitHub Actions Demo App
+========================================
+  Server is now running!
+  
+  Local:            http://localhost:${port}
+  Status endpoint:  http://localhost:${port}/api/status
+  
+  Press Ctrl+C to stop the server
+========================================
+`);
   });
 }
 

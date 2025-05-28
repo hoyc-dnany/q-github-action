@@ -32,19 +32,29 @@
 
 ## 本地開發
 
-安裝依賴：
+### 如何運行應用程式 (How to Run the Application)
+
+**快速啟動指南:**
+
+1. 安裝依賴：
 ```
 npm install
 ```
 
+2. 啟動應用程式：
+```
+npm start
+```
+
+3. 在瀏覽器中訪問：http://localhost:3000
+
+> **注意:** 詳細的運行說明請參閱 [RUN_INSTRUCTIONS.md](./RUN_INSTRUCTIONS.md)
+
+### 其他命令
+
 執行測試：
 ```
 npm test
-```
-
-啟動應用程式：
-```
-npm start
 ```
 
 建置應用程式：
